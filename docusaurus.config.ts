@@ -217,6 +217,8 @@ const config: Config = {
     [
       './src/plugin/plugin-content-blog', // 为了实现全局 blog 数据，必须改写 plugin-content-blog 插件
       {
+        onInlineTags: 'warn',
+        onInlineAuthors: 'warn',
         path: 'blog',
         editUrl: ({ locale, blogDirPath, blogPath, permalink }) =>
           `https://github.com/kuizuo/blog/edit/main/${blogDirPath}/${blogPath}`,
