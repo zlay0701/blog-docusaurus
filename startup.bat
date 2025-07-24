@@ -6,6 +6,6 @@ chcp 65001
 
 echo  "start..."
 
-npm run start
+pnpm start
 
 @pause
