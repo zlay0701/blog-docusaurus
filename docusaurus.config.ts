@@ -219,6 +219,7 @@ const config: Config = {
       {
         onInlineTags: 'warn',
         onInlineAuthors: 'warn',
+        truncateMarker: /<!--\s*more\s*-->|<!--\s*truncate\s*-->/i,
         path: 'blog',
         editUrl: ({ locale, blogDirPath, blogPath, permalink }) =>
           `https://github.com/kuizuo/blog/edit/main/${blogDirPath}/${blogPath}`,
