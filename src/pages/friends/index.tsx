@@ -11,10 +11,10 @@ import styles from './styles.module.css'
 const TITLE = '友链'
 const DESCRIPTION = '有很多良友，胜于有很多财富。'
 const ADD_FRIEND_URL = 'https://github.com/kuizuo/blog/edit/main/data/friends.tsx'
-const SITE_INFO = `title: '愧怍'
-description: '道阻且长，行则将至'
-website: 'https://kuizuo.me'
-avatar: 'https://kuizuo.me/img/logo.png'
+const SITE_INFO = `title: '素喂'
+description: '你必须很努力,才能看起来毫不费力'
+website: 'https://zlay.fun/'
+avatar: 'https://zlay.fun/uploads/avatar.gif'
 `
 const friends = Friends
 
