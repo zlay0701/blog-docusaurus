@@ -61,6 +61,7 @@ const config: Config = {
           label: '更多',
           position: 'right',
           items: [
+            { label: '分类', to: '/blog/categories' },
             { label: '标签', to: '/blog/tags' },
             { label: '归档', to: 'blog/archive' },
             { label: '主题魔改', to: 'docs/docusaurus-guides' },
