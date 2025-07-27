@@ -4,6 +4,8 @@ import { usePluralForm } from '@docusaurus/theme-common'
 import { useDateTimeFormat } from '@docusaurus/theme-common/internal'
 import { cn } from '@site/src/lib/utils'
 import type { Props } from '@theme/BlogPostItem/Header/Info'
+import { getCategoriesByfrontMatter, matchCategories } from '@site/src/plugin/plugin-content-blog/utils'
+import { usePluginData } from '@docusaurus/useGlobalData'
 
 import { Icon } from '@iconify/react'
 import Tag from '@site/src/theme/Tag'
@@ -43,9 +45,16 @@ function DateTime({ date, formattedDate }: { date: string, formattedDate: string
 
 export default function BlogPostItemHeaderInfo({ className }: Props): JSX.Element {
   const { metadata } = useBlogPost()
-  const { date, tags, readingTime } = metadata
+  const { date, tags, readingTime, frontMatter } = metadata
 
   const tagsExists = tags.length > 0
+
+  const blogCategories = getCategoriesByfrontMatter(frontMatter)
+  const categoriesExists = blogCategories.length > 0
+  const allCategories = usePluginData('docusaurus-plugin-content-blog').BlogCategories
+  const categoriesUrls = matchCategories(allCategories, blogCategories)
+  // console.log('categories', getCategoriesByfrontMatter(frontMatter))
+  // console.log('categories1', categoriesUrls)
 
   const dateTimeFormat = useDateTimeFormat({
     day: 'numeric',
@@ -62,6 +71,26 @@ export default function BlogPostItemHeaderInfo({ className }: Props): JSX.Elemen
         <Icon icon="ri:calendar-line" />
         <DateTime date={date} formattedDate={formatDate(date)} />
       </div>
+      {categoriesExists && (
+        <div className="inline-flex items-center gap-1">
+          <Icon icon="ri:table-2" />
+          <div className={cn('truncate', 'inline-flex text-center')}>
+            {categoriesUrls.slice(0, 3).map(({ label, description, permalink: tagPermalink }, index) => {
+              return (
+                <div key={tagPermalink}>
+                  {index !== 0 && '/'}
+                  <Tag
+                    label={label}
+                    permalink={tagPermalink}
+                    className="tag !border-0 p-0.5 text-text hover:text-link"
+                    description={description}
+                  />
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      )}
       {tagsExists && (
         <div className="inline-flex items-center gap-1">
           <Icon icon="ri:price-tag-3-line" />
@@ -87,7 +116,7 @@ export default function BlogPostItemHeaderInfo({ className }: Props): JSX.Elemen
           <Icon icon="ri:time-line" />
           <ReadingTime readingTime={readingTime} />
         </div>
-      )}
+      )}a 
     </div>
   )
 }

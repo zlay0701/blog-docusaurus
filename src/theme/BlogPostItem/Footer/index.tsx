@@ -5,12 +5,14 @@ import { cn } from '@site/src/lib/utils'
 import ReadMoreLink from '@theme/BlogPostItem/Footer/ReadMoreLink'
 import Tag from '@theme/Tag'
 import { ReadingTime } from '../Header/Info/index'
+import { getCategoriesByfrontMatter, matchCategories } from '@site/src/plugin/plugin-content-blog/utils'
+import { usePluginData } from '@docusaurus/useGlobalData'
 
 import styles from './styles.module.css'
 
 export default function BlogPostItemFooter(): JSX.Element | null {
   const { metadata, isBlogPostPage } = useBlogPost()
-  const { tags, title, editUrl, hasTruncateMarker, date, readingTime, authors } = metadata
+  const { tags, title, editUrl, hasTruncateMarker, date, readingTime, authors, frontMatter } = metadata
 
   const dateTimeFormat = useDateTimeFormat({
     day: 'numeric',
@@ -26,6 +28,13 @@ export default function BlogPostItemFooter(): JSX.Element | null {
 
   const tagsExists = tags.length > 0
   const authorsExists = authors.length > 0
+
+  const blogCategories = getCategoriesByfrontMatter(frontMatter)
+  const categoriesExists = blogCategories.length > 0
+  const allCategories = usePluginData('docusaurus-plugin-content-blog').BlogCategories
+  const categoriesUrls = matchCategories(allCategories, blogCategories)
+  // console.log('categories', getCategoriesByfrontMatter(frontMatter))
+  // console.log('categories1', categoriesUrls)
 
   const renderFooter = isBlogPostPage
 
@@ -51,6 +60,16 @@ export default function BlogPostItemFooter(): JSX.Element | null {
               <time dateTime={date} itemProp="datePublished">
                 {formatDate(date)}
               </time>
+            </>
+          )}
+          {categoriesExists && (
+            <>
+              <Icon icon="ri:table-2" />
+              <span className={styles.blogPostInfoTags}>
+                {categoriesUrls.map(({ label, permalink: tagPermalink, description }) => (
+                  <Tag label={label} permalink={tagPermalink} key={tagPermalink} description={description} />
+                ))}
+              </span>
             </>
           )}
           {tagsExists && (
