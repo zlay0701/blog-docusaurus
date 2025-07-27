@@ -29,3 +29,13 @@ export function getCategoriesByfrontMatter(frontMatter) {
   }
   return normalizedCategories
 }
+/**
+ * 过滤出当前博客的分类对象数组
+ * @param {*} allCategories [{label: '11', permalink: '/blog/categories/11', count: 1}]
+ * @param {*} blogCategories ['中文分类']
+ */
+export function matchCategories(source, map) {
+  return source
+    .filter(item => map.includes(item.label)) // 筛选出categoryMap中存在的label
+    .map(item => item) // 直接返回匹配的label（即中文分类名称）
+}
