@@ -3,7 +3,7 @@ import { HtmlClassNameProvider, PageMetadata, ThemeClassNames, translateTagsPage
 import { Icon } from '@iconify/react'
 import { cn } from '@site/src/lib/utils'
 import SearchMetadata from '@theme/SearchMetadata'
-import TagsListByLetter from '@theme/TagsListByLetter'
+import TagsListByLetter from './TagsListByLetter'
 import { useState } from 'react'
 import { TagsListByFlat } from '/src/theme/TagsListByLetter'
 import MyLayout from '/src/theme/MyLayout'
