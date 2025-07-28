@@ -18,6 +18,8 @@ import {
 } from '@docusaurus/utils'
 import _ from 'lodash'
 import { getCategoriesByfrontMatter } from './utils'
+import yaml from 'js-yaml'
+import fs from 'fs'
 
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const blogPluginExports = require('@docusaurus/plugin-content-blog')
@@ -27,6 +29,7 @@ async function blogPluginEnhanced(context, options) {
   const blogPluginInstance = await blogPlugin(context, options)
   const { postsPerPage, pageBasePath, blogDescription, blogTitle, blogSidebarTitle, routeBasePath } = options
   const blogTagsListPath = routeBasePath + '/categories'
+  const categoriesYaml = routeBasePath + '/categories.yml'
   // const sidebarModulePath = createSidebarModule()
   const postsPerPageOption = postsPerPage
   // console.log('options' + JSON.stringify(context.i18n.defaultLocale))
@@ -63,6 +66,7 @@ async function blogPluginEnhanced(context, options) {
         BlogCategories: categoryCountArray,
       })
       // 分类的路由-----start
+      checkYaml(categoriesYaml, categoryCountArray)
       const friendsJsonPath = await createData(
         'blog-categories.json',
         JSON.stringify(categoryCountArray),
@@ -261,4 +265,35 @@ export function paginateBlogPosts({
     })
   }
   return pages
+}
+
+function checkYaml(categoriesYaml, categoryCountArray) {
+  fs.access(categoriesYaml, fs.constants.F_OK, (err) => {
+    if (err) {
+      console.log(categoriesYaml, '文件不存在,跳过分类检测')
+    } else {
+      let normalizedCategories = []
+      const catYaml = yaml.load(fs.readFileSync(categoriesYaml, 'utf8'))
+      // console.log('config', config)
+      if (Array.isArray(catYaml)) {
+        // 数组：过滤掉无效值并转为字符串
+        normalizedCategories = catYaml.filter(cat => cat !== undefined && cat !== null).map(String)
+        categoryCountArray.forEach((obj) => {
+          let flag = false
+          for (const str of normalizedCategories) {
+            if (str === obj.label) {
+              flag = true
+              break
+            } else if (obj.label === '未分类' || obj.label === 'Uncategorized') {
+              flag = true
+              break
+            }
+          }
+          if (!flag) {
+            console.warn('\x1b[93m' + '[WARNING] category [' + obj.label + '] not defined in ' + categoriesYaml + '\x1b[0m')// 高亮黄色（浅黄）
+          }
+        })
+      }
+    }
+  })
 }
