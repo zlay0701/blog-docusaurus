@@ -54,7 +54,7 @@ function BlogTagsPostsPageMetadata({ tag }: Props): JSX.Element {
 
 function BlogTagsPostsPageContent({ tag, items, sidebar, listMetadata }: Props): JSX.Element {
   const title = useBlogTagsPostsPageTitle(tag)
-  console.log(JSON.stringify(tag))
+  // console.log(JSON.stringify(tag))
   return (
     <MyLayout>
       <header className={cn('mb-4')}>
