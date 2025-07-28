@@ -66,7 +66,7 @@ async function blogPluginEnhanced(context, options) {
         BlogCategories: categoryCountArray,
       })
       // 分类的路由-----start
-      checkYaml(categoriesYaml, categoryCountArray)
+      checkYaml(categoriesYaml, categoryCountArray, blogTags)
       const friendsJsonPath = await createData(
         'blog-categories.json',
         JSON.stringify(categoryCountArray),
@@ -267,7 +267,7 @@ export function paginateBlogPosts({
   return pages
 }
 
-function checkYaml(categoriesYaml, categoryCountArray) {
+function checkYaml(categoriesYaml, categoryCountArray, blogTags) { // blogTags是对象不是数组, 数组用of map用in
   fs.access(categoriesYaml, fs.constants.F_OK, (err) => {
     if (err) {
       console.log(categoriesYaml, '文件不存在,跳过分类检测')
@@ -290,10 +290,26 @@ function checkYaml(categoriesYaml, categoryCountArray) {
             }
           }
           if (!flag) {
-            console.warn('\x1b[93m' + '[WARNING] category [' + obj.label + '] not defined in ' + categoriesYaml + '\x1b[0m')// 高亮黄色（浅黄）
+            console.warn('\x1b[93m' + '[My WARNING] Category [' + obj.label + '] not defined in ' + categoriesYaml + '\x1b[0m')// 高亮黄色（浅黄）
           }
         })
       }
     }
   })
+  // 检测分类大小写
+  for (const str1 of categoryCountArray) {
+    for (const str2 of categoryCountArray) {
+      if (str1.label != str2.label && str1.label.toLowerCase() === str2.label.toLowerCase()) {
+        console.warn('\x1b[93m' + '[My WARNING] Same Category exists (case ignored) [' + str1.label + '] and [' + str2.label + ']\x1b[0m')// 高亮黄色（浅黄）
+      }
+    }
+  }
+  // 检测标签大小写
+  for (const key1 of Object.values(blogTags)) {
+    for (const key2 of Object.values(blogTags)) {
+      if (key1.label != key2.label && key1.label.toLowerCase() === key2.label.toLowerCase()) {
+        console.warn('\x1b[93m' + '[My WARNING] Same Tag exists (case ignored) [' + key1.label + '] and [' + key2.label + ']\x1b[0m')// 高亮黄色（浅黄）
+      }
+    }
+  }
 }
