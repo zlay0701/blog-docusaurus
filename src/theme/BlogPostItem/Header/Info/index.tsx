@@ -73,7 +73,7 @@ export default function BlogPostItemHeaderInfo({ className }: Props): JSX.Elemen
       </div>
       {categoriesExists && (
         <div className="inline-flex items-center gap-1">
-          <Icon icon="ri:table-2" />
+          <Icon icon="ri:folder-2-line" />
           <div className={cn('truncate', 'inline-flex text-center')}>
             {categoriesUrls.slice(0, 3).map(({ label, description, permalink: tagPermalink }, index) => {
               return (

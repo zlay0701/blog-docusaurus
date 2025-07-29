@@ -64,7 +64,7 @@ export default function BlogPostItemFooter(): JSX.Element | null {
           )}
           {categoriesExists && (
             <>
-              <Icon icon="ri:table-2" />
+              <Icon icon="ri:folder-2-line" />
               <span className={styles.blogPostInfoTags}>
                 {categoriesUrls.map(({ label, permalink: tagPermalink, description }) => (
                   <Tag label={label} permalink={tagPermalink} key={tagPermalink} description={description} />
