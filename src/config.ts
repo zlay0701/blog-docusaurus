@@ -9,7 +9,7 @@ import { LinkPreset } from './types/config'
 
 export const siteConfig: SiteConfig = {
   title: 'zlay - 素喂’Blog',
-  subtitle: '你必须很努力,才能看起来毫不费力',
+  subtitle: '你必须很努力,才能看起来毫不费力', // 暂未使用
   lang: 'zh-Hans', // 支持语言 https://github.com/facebook/docusaurus/tree/main/packages/docusaurus-theme-translations/locales
   friends: {
     siteInfo: {
