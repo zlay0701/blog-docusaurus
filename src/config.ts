@@ -19,6 +19,10 @@ export const siteConfig: SiteConfig = {
       avatar: 'https://zlay.fun/uploads/avatar.gif',
     },
   },
+  since: 2016,
+  beian: '闽ICP备2020017848号-3',
+  beian1: '闽公网安备35021102000847号',
+  vendors: '<p style="margin-bottom: 0;">Vercel提供CDN/云资源支持</p>',
 }
 
 export const profileConfig: ProfileConfig = {
@@ -31,4 +35,44 @@ export const profileConfig: ProfileConfig = {
     title: '自我介绍',
     url: '/about',
   },
+}
+// getCopyright方法无需改动
+export function getCopyright(): string {
+  let sinceStr = ''
+  if (siteConfig.since !== new Date().getFullYear()) {
+    sinceStr = siteConfig.since + ' - '
+  }
+  let beianStr = ''
+  let beian1Str = ''
+  let beian2Str = ''
+  let beianFlag = true
+  let beian1Flag = true
+  if (siteConfig.beian === undefined || siteConfig.beian === null || siteConfig.beian.trim() === '') {
+    beianFlag = false
+  }
+  if (siteConfig.beian1 === undefined || siteConfig.beian1 === null || siteConfig.beian1.trim() === '') {
+    beian1Flag = false
+  }
+  if (beianFlag) {
+    beianStr = `<a href="http://beian.miit.gov.cn/">${siteConfig.beian}</a>`
+  }
+  if (beian1Flag) {
+    if (beianFlag) {
+      beian1Str = '&nbsp;&nbsp;'
+    }
+    beian1Str = beian1Str + `<img style="height:17px;margin: 1px 8px 1px 0;" src="/img/police.png" alt="police" height="20"/>
+          <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=${siteConfig.beian1.match(/\d+/)?.[0]}" >${siteConfig.beian1}</a>
+          `
+  }
+  if (beianFlag || beian1Flag) {
+    beian2Str = `<p style="display: inline-flex; align-items: center;margin-bottom: 0;">
+           ${beianStr} ${beian1Str}
+        </p>
+    `
+  }
+  return `
+        <p style="margin-bottom: 0;">Copyright © ${sinceStr}${new Date().getFullYear()} ❤️ ${profileConfig.name}. Built with <a href='https://docusaurus.io/zh-CN/'>Docusaurus</a></p>
+        ${beian2Str}
+        ${siteConfig.vendors}
+        `
 }

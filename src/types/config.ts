@@ -12,6 +12,10 @@ export type SiteConfig = {
       avatar: string
     }
   }
+  since: number
+  beian: string
+  beian1: string
+  vendors: string
 
   themeColor: {
     hue: number

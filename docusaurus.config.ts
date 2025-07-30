@@ -3,7 +3,7 @@ import type { Config } from '@docusaurus/types'
 import { themes } from 'prism-react-renderer'
 import social from './data/social'
 import type { GiscusConfig } from './src/components/Comment'
-import { siteConfig } from './src/config'
+import { siteConfig, getCopyright } from './src/config'
 
 const beian = '闽ICP备2020017848号-3'
 const beian1 = '闽公网安备35021102000847号'
@@ -118,13 +118,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `
-        <p style="margin-bottom: 0;"><a href="http://beian.miit.gov.cn/">${beian}</a></p>
-        <p style="display: inline-flex; align-items: center;"><img style="height:20px;margin-right: 0.5rem;" src="/img/police.png" alt="police" height="20"/><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=${
-          beian1.match(/\d+/)?.[0]
-        }" >${beian1}</a></p>
-        <p>Copyright © 2020 - ${new Date().getFullYear()} kuizuo. | Built with Docusaurus.</p>
-        `,
+      copyright: getCopyright(),
     },
     algolia: {
       appId: 'GV6YN1ODMO',
