@@ -1,3 +1,10 @@
+/**
+ * 支持的图标包
+ * https://icon-sets.iconify.design/logos/
+ * https://icon-sets.iconify.design/simple-icons/
+ * https://icon-sets.iconify.design/ri/
+ * emoji搜索👋👋👋 https://search.emoji6.com/en
+ */
 import type {
   ExpressiveCodeConfig,
   LicenseConfig,
