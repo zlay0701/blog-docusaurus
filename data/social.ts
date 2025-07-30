@@ -85,7 +85,7 @@ const socialSet: Record<keyof Social | 'rss', SocialValue> = {
     color: '#C20C0C',
   },
   rss: {
-    href: '/blog/rss.xml',
+    href: '/blog/atom.xml',
     title: 'RSS',
     icon: 'ri:rss-line',
     color: '#FFA501',
