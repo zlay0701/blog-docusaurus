@@ -228,7 +228,7 @@ const config: Config = {
           defaultReadingTime({ content, options: { wordsPerMinute: 300 } }),
         feedOptions: {
           type: 'all',
-          title: '愧怍',
+          title: siteConfig.title,
           description: 'feedId:41215011978385457+userId:41840354283324416',
           copyright: getCopyright2(),
         },
