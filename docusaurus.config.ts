@@ -3,7 +3,7 @@ import type { Config } from '@docusaurus/types'
 import { themes } from 'prism-react-renderer'
 import social from './data/social'
 import type { GiscusConfig } from './src/components/Comment'
-import { siteConfig, getCopyright } from './src/config'
+import { siteConfig, getCopyright, getCopyright2 } from './src/config'
 
 const beian = '闽ICP备2020017848号-3'
 const beian1 = '闽公网安备35021102000847号'
@@ -230,7 +230,7 @@ const config: Config = {
           type: 'all',
           title: '愧怍',
           description: 'feedId:41215011978385457+userId:41840354283324416',
-          copyright: `Copyright © ${new Date().getFullYear()} 愧怍 Built with Docusaurus.<p><a href="http://beian.miit.gov.cn/" class="footer_lin">${beian}</a></p>`,
+          copyright: getCopyright2(),
         },
       },
     ],

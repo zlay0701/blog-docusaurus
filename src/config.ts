@@ -76,3 +76,11 @@ export function getCopyright(): string {
         ${siteConfig.vendors}
         `
 }
+// getCopyright2方法无需改动 根据上边的方法删减 去掉了部分内容
+export function getCopyright2(): string {
+  let sinceStr = ''
+  if (siteConfig.since !== new Date().getFullYear()) {
+    sinceStr = siteConfig.since + ' - '
+  }
+  return `Copyright © ${sinceStr}${new Date().getFullYear()} ❤️ ${profileConfig.name}`
+}
