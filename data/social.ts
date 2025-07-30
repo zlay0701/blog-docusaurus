@@ -19,16 +19,21 @@ type SocialValue = {
 
 const social: Social = {
   github: 'https://github.com/zlay0701',
-  x: 'https://twitter.com/kuizuo',
-  juejin: 'https://juejin.cn/user/1565318510545901',
-  wx: 'https://img.kuizuo.me/wechat.png',
+  // x: 'https://twitter.com/kuizuo',
+  // juejin: 'https://juejin.cn/user/1565318510545901',
+  // wx: 'https://img.kuizuo.me/wechat.png',
   // qq: 'https://img.kuizuo.me/qq.png',
   // zhihu: 'https://www.zhihu.com/people/kuizuo',
-  cloudmusic: 'https://music.163.com/#/user/home?id=1333010742',
+  // cloudmusic: 'https://music.163.com/#/user/home?id=1333010742',
   email: 'mailto:zlay0701@gmail.com',
-  discord: 'https://discord.gg/M8cVcjDxkz',
+  // discord: 'https://discord.gg/M8cVcjDxkz',
 }
 
+/**
+ * 支持的图标包
+ * https://icon-sets.iconify.design/simple-icons/
+ * https://icon-sets.iconify.design/ri/
+ */
 const socialSet: Record<keyof Social | 'rss', SocialValue> = {
   github: {
     href: social.github,
