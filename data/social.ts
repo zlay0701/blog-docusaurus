@@ -31,6 +31,7 @@ const social: Social = {
 
 /**
  * 支持的图标包
+ * https://icon-sets.iconify.design/logos/
  * https://icon-sets.iconify.design/simple-icons/
  * https://icon-sets.iconify.design/ri/
  */
