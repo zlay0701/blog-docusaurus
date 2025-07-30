@@ -3,12 +3,13 @@ import type { Config } from '@docusaurus/types'
 import { themes } from 'prism-react-renderer'
 import social from './data/social'
 import type { GiscusConfig } from './src/components/Comment'
+import { siteConfig } from './src/config'
 
 const beian = '闽ICP备2020017848号-3'
 const beian1 = '闽公网安备35021102000847号'
 
 const config: Config = {
-  title: 'zlay - 素喂’Blog',
+  title: siteConfig.title,
   url: 'https://docusaurus-zlay.vercel.app',
   baseUrl: '/',
   favicon: 'images/favicon.ico',
@@ -300,9 +301,9 @@ Love what you do and do what you love.
     'https://cdn.jsdelivr.net/npm/misans@4.0.0/lib/Normal/MiSans-Medium.min.css',
     'https://cdn.jsdelivr.net/npm/misans@4.0.0/lib/Normal/MiSans-Semibold.min.css',
   ],
-  i18n: {
-    defaultLocale: 'zh-Hans',
-    locales: ['zh-Hans'],
+  i18n: { // 支持语言 https://github.com/facebook/docusaurus/tree/main/packages/docusaurus-theme-translations/locales
+    defaultLocale: siteConfig.lang,
+    locales: [siteConfig.lang],
   },
   onBrokenLinks: 'warn',
   future: {
