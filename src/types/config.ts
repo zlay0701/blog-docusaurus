@@ -61,6 +61,7 @@ export type ProfileConfig = {
   avatar?: string
   heroLabel1: string
   heroLabel2: string
+  heroImg: string
   name: string
   bio?: string
   about: {
