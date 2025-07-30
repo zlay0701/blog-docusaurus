@@ -1,6 +1,7 @@
 import CodeBlock from '@theme/CodeBlock'
 import Layout from '@theme/Layout'
 import { memo, useRef } from 'react'
+import { siteConfig } from '../../config'
 
 import { Friend, Friends } from '@site/data/friends'
 
@@ -11,10 +12,10 @@ import styles from './styles.module.css'
 const TITLE = '友链'
 const DESCRIPTION = '有很多良友，胜于有很多财富。'
 const ADD_FRIEND_URL = 'https://github.com/kuizuo/blog/edit/main/data/friends.tsx'
-const SITE_INFO = `title: '素喂'
-description: '你必须很努力,才能看起来毫不费力'
-website: 'https://zlay.fun/'
-avatar: 'https://zlay.fun/uploads/avatar.gif'
+const SITE_INFO = `title: '${siteConfig.friends.siteInfo.title}'
+description: '${siteConfig.friends.siteInfo.description}'
+website: '${siteConfig.friends.siteInfo.website}'
+avatar: '${siteConfig.friends.siteInfo.avatar}'
 `
 const friends = Friends
 
