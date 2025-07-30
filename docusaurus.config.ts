@@ -46,6 +46,7 @@ const config: Config = {
       },
     },
     navbar: {
+      title: siteConfig.title,
       logo: {
         alt: '素喂`blog',
         src: 'images/favicon.svg',
