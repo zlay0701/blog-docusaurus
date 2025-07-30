@@ -1,6 +1,7 @@
 import { type Variants, motion } from 'framer-motion'
 
 import Translate from '@docusaurus/Translate'
+import { profileConfig } from '../../../config'
 
 import HeroSvg from './img/hero.svg'
 
@@ -49,7 +50,7 @@ function Name() {
           e.currentTarget.style.setProperty('--mouse-y', `${bounding.y}px`)
         }}
       >
-        <Translate id="homepage.hero.name">素喂</Translate>
+        <Translate id="homepage.hero.name">{profileConfig.name}</Translate>
       </span>
       <span className="ml-1">👋</span>
     </motion.div>
@@ -63,7 +64,7 @@ export default function Hero() {
         <Name />
         <motion.p custom={2} initial="hidden" animate="visible" variants={variants} className="max-lg:px-4">
           <Translate id="homepage.hero.text">
-            在这里我会分享各类技术栈所遇到问题与解决方案，带你了解最新的技术栈以及实际开发中如何应用，并希望我的开发经历对你有所启发。
+            {profileConfig.bio}
           </Translate>
         </motion.p>
         <motion.div custom={3} initial="hidden" animate="visible" variants={variants}>
@@ -75,8 +76,8 @@ export default function Hero() {
             borderRadius="1.25rem"
             className="relative z-10 flex items-center rounded-2xl border border-solid border-neutral-200 bg-background px-5 py-3 text-center text-base font-semibold dark:border-neutral-800"
           >
-            <a href="/about" className="font-semibold">
-              <Translate id="hompage.hero.introduce">自我介绍</Translate>
+            <a href={profileConfig.about.url} className="font-semibold">
+              <Translate id="hompage.hero.introduce">{profileConfig.about.title}</Translate>
             </a>
           </MovingButton>
         </motion.div>

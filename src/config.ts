@@ -20,3 +20,12 @@ export const siteConfig: SiteConfig = {
     },
   },
 }
+
+export const profileConfig: ProfileConfig = {
+  name: '素喂',
+  bio: '在这里我会分享各类技术栈所遇到问题与解决方案，带你了解最新的技术栈以及实际开发中如何应用，并希望我的开发经历对你有所启发。',
+  about: {
+    title: '自我介绍',
+    url: '/about',
+  },
+}

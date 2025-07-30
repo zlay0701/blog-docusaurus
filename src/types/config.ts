@@ -61,6 +61,10 @@ export type ProfileConfig = {
   avatar?: string
   name: string
   bio?: string
+  about: {
+    title: string
+    url: string
+  }
   links: {
     name: string
     url: string
