@@ -59,6 +59,8 @@ export type NavBarConfig = {
 
 export type ProfileConfig = {
   avatar?: string
+  heroLabel1: string
+  heroLabel2: string
   name: string
   bio?: string
   about: {

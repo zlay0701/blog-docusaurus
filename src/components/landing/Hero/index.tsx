@@ -41,7 +41,7 @@ function Name() {
         e.currentTarget.style.setProperty('--y', `${e.clientY}px`)
       }}
     >
-      <Translate id="homepage.hero.greet">你好! 我是</Translate>
+      <Translate id="homepage.hero.greet">{profileConfig.heroLabel1}</Translate>
       <span
         className={styles.name}
         onMouseMove={(e) => {
@@ -52,7 +52,7 @@ function Name() {
       >
         <Translate id="homepage.hero.name">{profileConfig.name}</Translate>
       </span>
-      <span className="ml-1">👋</span>
+      <span className="ml-1">{profileConfig.heroLabel2}</span>
     </motion.div>
   )
 }
