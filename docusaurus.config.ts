@@ -213,7 +213,7 @@ const config: Config = {
         editLocalizedFiles: false,
         blogDescription: '代码人生：编织技术与生活的博客之旅',
         blogSidebarCount: 10,
-        blogSidebarTitle: '博文',
+        blogSidebarTitle: '最新博文',
         postsPerPage: 12,
         showReadingTime: true,
         readingTime: ({ content, frontMatter, defaultReadingTime }) =>
