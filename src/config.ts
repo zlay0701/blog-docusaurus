@@ -98,6 +98,7 @@ export function getCopyright2(): string {
 export async function getSvgString(
   iconName: string,
   label: string,
+  margin?: string,
   options: { color?: string
     width?: string
     height?: string } = {},
@@ -111,6 +112,7 @@ export async function getSvgString(
     // console.log('iconData', iconData)
     const body = iconData.body
     // 2. 转换图标数据为 SVG 属性和内容
+    const marginStr = margin || '0 0 -4px 0'
     const width = options.width || '20'
     const height = options.height || '20'
     const attributes = {
@@ -127,7 +129,7 @@ export async function getSvgString(
       .map(([key, value]) => `${key}="${value}"`)
       .join(' ')
     // console.log('svgAttrs', svgAttrs)
-    const svgstr = `<svg xmlns="http://www.w3.org/2000/svg" style="margin:0 0 -4px 0;" ${svgAttrs}>${body}</svg>`
+    const svgstr = `<svg xmlns="http://www.w3.org/2000/svg" name=${iconName} style="margin:${marginStr};" ${svgAttrs}>${body}</svg>`
     // console.log('svgstr', svgstr)
     return `${svgstr}<span>${label}</span>`
   }
