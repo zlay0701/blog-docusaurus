@@ -52,7 +52,7 @@ export default async function createConfigAsync() {
       },
       hideOnScroll: true,
       items: [
-        { label: '首页', position: 'right', to: '/' },
+        { html: await getSvgString('mdi:home', '首页'), position: 'right', to: '/' },
         { label: '博客', position: 'right', to: 'blog' },
         { label: '项目', position: 'right', to: 'project' },
         { label: '友链', position: 'right', to: 'friends' },
@@ -207,6 +207,7 @@ export default async function createConfigAsync() {
       {
         onInlineTags: 'warn',
         onInlineAuthors: 'warn',
+        onUntruncatedBlogPosts: 'warn',
         truncateMarker: /<!--\s*more\s*-->|<!--\s*truncate\s*-->/i,
         path: 'blog',
         editUrl: ({ locale, blogDirPath, blogPath, permalink }) =>
@@ -291,6 +292,7 @@ Love what you do and do what you love.
     locales: [siteConfig.lang],
   },
   onBrokenLinks: 'warn',
+  onBrokenMarkdownLinks: 'warn',
   future: {
     v4: true,
     experimental_faster: true,
