@@ -52,6 +52,7 @@ export default async function createConfigAsync() {
       },
       hideOnScroll: true,
       items: [
+        { html: await getSvgString('mdi:rocket-launch', '导航'), position: 'right', to: '/navigation' },
         { html: await getSvgString('mdi:home', '首页'), position: 'right', to: '/' },
         { html: await getSvgString('mdi:bookshelf', '博客'), position: 'right', to: 'blog' },
         { html: await getSvgString('mdi:box-variant-closed', '项目'), position: 'right', to: 'project' },
@@ -64,6 +65,7 @@ export default async function createConfigAsync() {
             { html: await getSvgString('mdi:table', '分类'), to: '/blog/categories' },
             { html: await getSvgString('mdi:tags', '标签'), to: '/blog/tags' },
             { html: await getSvgString('mdi:archive', '归档'), to: 'blog/archive' },
+            { html: await getSvgString('mdi:file-code', '作品集'), to: '/portfolio' },
             { html: await getSvgString('mdi:theme', '主题魔改'), to: 'docs/docusaurus-guides' },
           ],
         },
