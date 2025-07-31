@@ -76,7 +76,7 @@ function FriendCard({ friend }: { friend: repoT }) {
         href={`https://github.com/${friend.username}/${friend.repo}`} // 修正变量引用方式
       >
         <img 
-          className='hover:translate-y-[0px] hover:scale-[1.0] hover:bg-[rgba(245,245,245,1)] hover:shadow-[0_3px_10px_0_rgba(164,190,217,0.3)]'
+          className='duration-300 hover:translate-y-[-5px] hover:scale-[1.0] hover:bg-[rgba(245,245,245,1)] hover:shadow-[0_3px_10px_0_rgba(164,190,217,0.3)]'
           align="center"
           src={`${Friends.serverUrl}/api/pin/?username=${friend.username}&repo=${friend.repo}&show_owner=${Friends.showOwner}&bg_color=${Friends.bgColor}`} // 模板字符串拼接
           alt={friend.name} // 修正变量引用方式
@@ -87,7 +87,7 @@ function FriendCard({ friend }: { friend: repoT }) {
   }
   else {
     return (
-      <li style={{ background: `#F5F5F5`, border: `1px solid #E4E2E2`, borderRadius: `4px` }} className="rounded-card bg-card relative flex min-h-24 cursor-pointer flex-row items-center overflow-hidden px-4 py-1 transition-all duration-300 hover:translate-y-[0px] hover:scale-[1.0] hover:bg-[rgba(245,245,245,1)] hover:shadow-[0_3px_10px_0_rgba(164,190,217,0.3)]">
+      <li style={{ background: `#F5F5F5`, border: `1px solid #E4E2E2`, borderRadius: `4px` }} className="rounded-card bg-card relative flex min-h-24 cursor-pointer flex-row items-center overflow-hidden px-4 py-1 transition-all duration-300 hover:translate-y-[-5px] hover:scale-[1.0] hover:bg-[rgba(245,245,245,1)] hover:shadow-[0_3px_10px_0_rgba(164,190,217,0.3)]">
         <img
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-expect-error
