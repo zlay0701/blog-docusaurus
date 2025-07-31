@@ -3,8 +3,11 @@
  * https://icon-sets.iconify.design/logos/
  * https://icon-sets.iconify.design/simple-icons/
  * https://icon-sets.iconify.design/ri/
+ * https://icon-sets.iconify.design/mdi/
  * emoji搜索👋👋👋 https://search.emoji6.com/en
  */
+import { loadIcon } from '@iconify/react'
+
 import type {
   ExpressiveCodeConfig,
   LicenseConfig,
@@ -91,4 +94,45 @@ export function getCopyright2(): string {
     sinceStr = siteConfig.since + ' - '
   }
   return `Copyright © ${sinceStr}${new Date().getFullYear()} ❤️ ${profileConfig.name}`
+}
+export async function getSvgString(
+  iconName: string,
+  label: string,
+  options: { color?: string
+    width?: string
+    height?: string } = {},
+): Promise<string> {
+  try {
+    // 1. 加载图标，获取 IconifyIcon 数据
+    const iconData = await loadIcon(iconName)
+    if (!iconData) {
+      throw new Error(`图标 "${iconName}" 加载失败`)
+    }
+    // console.log('iconData', iconData)
+    const body = iconData.body
+    // 2. 转换图标数据为 SVG 属性和内容
+    const width = options.width || '20'
+    const height = options.height || '20'
+    const attributes = {
+      // 默认样式
+      width: width,
+      height: height,
+      viewBox: `0 0 24 24`,
+      ...options,
+    }
+    // console.log('attributes', attributes)
+    // console.log('body', body)
+    // 3. 拼接为完整 SVG 字符串
+    const svgAttrs = Object.entries(attributes)
+      .map(([key, value]) => `${key}="${value}"`)
+      .join(' ')
+    // console.log('svgAttrs', svgAttrs)
+    const svgstr = `<svg xmlns="http://www.w3.org/2000/svg" style="margin:0 0 -4px 0;" ${svgAttrs}>${body}</svg>`
+    // console.log('svgstr', svgstr)
+    return `${svgstr}<span>${label}<span/>`
+  }
+  catch (error) {
+    console.error('获取 SVG 失败:', error)
+    return ''
+  }
 }
