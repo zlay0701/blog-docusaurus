@@ -3,9 +3,10 @@ import type { Config } from '@docusaurus/types'
 import { themes } from 'prism-react-renderer'
 import social from './data/social'
 import type { GiscusConfig } from './src/components/Comment'
-import { siteConfig, getCopyright, getCopyright2 } from './src/config'
+import { siteConfig, getCopyright, getCopyright2, getSvgString } from './src/config'
 
-const config: Config = {
+export default async function createConfigAsync() {
+  return {
   title: siteConfig.title,
   url: 'https://docusaurus-zlay.vercel.app',
   baseUrl: '/',
@@ -294,6 +295,5 @@ Love what you do and do what you love.
     v4: true,
     experimental_faster: true,
   },
+  }
 }
-
-export default config
