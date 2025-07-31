@@ -53,18 +53,18 @@ export default async function createConfigAsync() {
       hideOnScroll: true,
       items: [
         { html: await getSvgString('mdi:home', '首页'), position: 'right', to: '/' },
-        { label: '博客', position: 'right', to: 'blog' },
-        { label: '项目', position: 'right', to: 'project' },
-        { label: '友链', position: 'right', to: 'friends' },
-        { label: '关于', position: 'right', to: 'about' },
+        { html: await getSvgString('mdi:bookshelf', '博客'), position: 'right', to: 'blog' },
+        { html: await getSvgString('mdi:box-variant-closed', '项目'), position: 'right', to: 'project' },
+        { html: await getSvgString('mdi:leaf', '友链'), position: 'right', to: 'friends' },
+        { html: await getSvgString('mdi:user', '关于'), position: 'right', to: 'about' },
         {
-          label: '更多',
+          html: await getSvgString('mdi:more-circle', '更多', '0 0 0 0'),
           position: 'right',
           items: [
-            { label: '分类', to: '/blog/categories' },
-            { label: '标签', to: '/blog/tags' },
-            { label: '归档', to: 'blog/archive' },
-            { label: '主题魔改', to: 'docs/docusaurus-guides' },
+            { html: await getSvgString('mdi:table', '分类'), to: '/blog/categories' },
+            { html: await getSvgString('mdi:tags', '标签'), to: '/blog/tags' },
+            { html: await getSvgString('mdi:archive', '归档'), to: 'blog/archive' },
+            { html: await getSvgString('mdi:theme', '主题魔改'), to: 'docs/docusaurus-guides' },
           ],
         },
         // {
