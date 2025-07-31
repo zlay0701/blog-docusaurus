@@ -23,7 +23,7 @@ const FEATURES: FeatureItem[] = [
       </Translate>
     ),
     header: <WebDeveloperSvg className="h-auto w-full" height={150} role="img" />,
-    icon: <Icon icon="ri:computer-fill" className="size-4 text-neutral-500" />,
+    icon: <Icon icon="logos:dockbit" className="size-4 text-neutral-500" />,
   },
   {
     title: translate({
@@ -36,7 +36,7 @@ const FEATURES: FeatureItem[] = [
       </Translate>
     ),
     header: <SpiderSvg className="h-auto w-full" height={150} role="img" />,
-    icon: <Icon icon="ri:computer-fill" className="size-4 text-neutral-500" />,
+    icon: <Icon icon="logos:evergreen-icon" className="size-4 text-neutral-500" />,
   },
   {
     title: translate({
@@ -49,7 +49,7 @@ const FEATURES: FeatureItem[] = [
       </Translate>
     ),
     header: <OpenSourceSvg className="h-auto w-full" height={150} role="img" />,
-    icon: <Icon icon="ri:computer-fill" className="size-4 text-neutral-500" />,
+    icon: <Icon icon="logos:engine-yard-icon" className="size-4 text-neutral-500" />,
   },
 ]
 
