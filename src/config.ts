@@ -129,7 +129,7 @@ export async function getSvgString(
     // console.log('svgAttrs', svgAttrs)
     const svgstr = `<svg xmlns="http://www.w3.org/2000/svg" style="margin:0 0 -4px 0;" ${svgAttrs}>${body}</svg>`
     // console.log('svgstr', svgstr)
-    return `${svgstr}<span>${label}<span/>`
+    return `${svgstr}<span>${label}</span>`
   }
   catch (error) {
     console.error('获取 SVG 失败:', error)
