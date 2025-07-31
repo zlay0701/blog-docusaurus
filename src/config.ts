@@ -135,6 +135,6 @@ export async function getSvgString(
   }
   catch (error) {
     console.error('获取 SVG 失败:', error)
-    return ''
+    return '<span>${label}</span>'
   }
 }
