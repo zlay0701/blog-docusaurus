@@ -1,4 +1,4 @@
-// JSON格式
+//
 export const Friends: FLinks[] = [
   {
     FLinksTitle: '博客',
