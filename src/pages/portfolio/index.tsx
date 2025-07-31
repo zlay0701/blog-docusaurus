@@ -99,6 +99,7 @@ function FriendCard({ friend }: { friend: repoT }) {
           <div className="mb-1 flex items-center">
             <h4 className="mb-0 flex-1">
               <Link
+                style={{ fontSize: `15px`, fontWeight: `normal` }}
                 to={friend.link}
                 rel=""
                 className="from-ifm-color-primary to-ifm-color-primary bg-gradient-to-b bg-[length:0%_1px] bg-[0%_100%] bg-no-repeat no-underline transition-[background-size] duration-200 ease-out hover:bg-[length:100%_1px] focus:bg-[length:100%_1px]"
@@ -107,7 +108,7 @@ function FriendCard({ friend }: { friend: repoT }) {
               </Link>
             </h4>
           </div>
-          <p className="m-0 line-clamp-2 w-full overflow-hidden text-sm leading-[1.66]">{friend.desc}</p>
+          <p style={{ fontSize: `12px`, color: `#434D58`, fontWeight: `lighter` }} className="m-0 line-clamp-2 w-full overflow-hidden text-sm leading-[1.66]">{friend.desc}</p>
         </div>
       </li>
     )
