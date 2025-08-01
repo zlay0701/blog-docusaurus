@@ -8,6 +8,8 @@ import Image from '@theme/IdealImage'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import React from 'react'
 import { Section } from '../Section'
+import { useDateTimeFormat } from '@docusaurus/theme-common/internal'
+import { Icon } from '@iconify/react'
 
 const chunk = (arr, size) =>
   Array.from({ length: Math.ceil(arr.length / size) }, (_, i) => arr.slice(i * size, i * size + size))
@@ -16,8 +18,16 @@ const BLOG_POSTS_COUNT = 6
 const BLOG_POSTS_PER_ROW = 2
 
 export function BlogItem({ post }: { post: BlogPost }) {
+  const dateTimeFormat = useDateTimeFormat({
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+    timeZone: 'UTC',
+  })
+
+  const formatDate = (blogDate: string) => dateTimeFormat.format(new Date(blogDate))
   const {
-    metadata: { permalink, frontMatter, title, description },
+    metadata: { permalink, frontMatter, title, description, date },
   } = post
   let image = frontMatter.image
   image = image ? image : siteConfig.defaultPostImage // 给默认图片
@@ -41,15 +51,19 @@ export function BlogItem({ post }: { post: BlogPost }) {
       )}
       <div className="card__body" 
         style={{
-          backdropFilter: `blur(10px)`,
-          marginTop: '-90px',
+          backdropFilter: `blur(1px)`,
+          marginTop: '-120px',
         }}>
         <h4 className="text-base">
           <Link href={permalink} className="relative hover:no-underline">
             {title}
           </Link>
         </h4>
-        <p className="text-sm">{description}</p>
+        <p className="text-sm" style={{ marginBottom: '0px' }}>{description}</p>
+        <Icon icon="ri:calendar-line" style={{ marginBottom: '-2px', width: '12px', height: '12px' }} />
+        <time dateTime={date} itemProp="datePublished" style={{ fontSize: '12px', color: '#555555' }}>
+          &nbsp;{formatDate(date)}
+        </time>
       </div>
     </motion.li>
   )
