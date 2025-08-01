@@ -3,6 +3,7 @@ import Translate from '@docusaurus/Translate'
 import type { BlogPost } from '@docusaurus/plugin-content-blog'
 import { usePluginData } from '@docusaurus/useGlobalData'
 import { cn } from '@site/src/lib/utils'
+import { siteConfig } from '@site/src/config'
 import Image from '@theme/IdealImage'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import React from 'react'
@@ -18,7 +19,8 @@ export function BlogItem({ post }: { post: BlogPost }) {
   const {
     metadata: { permalink, frontMatter, title, description },
   } = post
-
+  let image = frontMatter.image
+  image = image ? image : siteConfig.defaultPostImage // 给默认图片
   return (
     <motion.li
       className={cn('card', 'margin-bottom--md flex w-full bg-blog shadow-blog')}
@@ -28,9 +30,9 @@ export function BlogItem({ post }: { post: BlogPost }) {
       whileHover={{ y: -10, transition: { duration: 0.3 } }}
       viewport={{ once: true }}
     >
-      {frontMatter.image && (
+      {image && (
         <Link href={permalink} className="max-h-[240px] w-full cursor-pointer overflow-hidden object-cover">
-          <Image src={frontMatter?.image} alt={title} img="" />
+          <Image src={image} alt={title} img="" />
         </Link>
       )}
       <div className="card__body">
