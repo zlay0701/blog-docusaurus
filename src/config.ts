@@ -84,7 +84,7 @@ export function getCopyright(): string {
     `
   }
   return `
-        <p style="margin-bottom: 0;">Copyright © ${sinceStr}${new Date().getFullYear()} ❤️ ${profileConfig.name}. Built with <a href='https://docusaurus.io/zh-CN/'>Docusaurus</a></p>
+        <p style="margin-bottom: 0;">Copyright © ${sinceStr}${new Date().getFullYear()} ❤️ ${profileConfig.author}. Built with <a href='https://docusaurus.io/zh-CN/'>Docusaurus</a></p>
         ${beian2Str}
         ${siteConfig.vendors}
         `
@@ -95,7 +95,7 @@ export function getCopyright2(): string {
   if (siteConfig.since !== new Date().getFullYear()) {
     sinceStr = siteConfig.since + ' - '
   }
-  return `Copyright © ${sinceStr}${new Date().getFullYear()} ❤️ ${profileConfig.name}`
+  return `Copyright © ${sinceStr}${new Date().getFullYear()} ❤️ ${profileConfig.author}`
 }
 export async function getSvgString(
   iconName: string,
