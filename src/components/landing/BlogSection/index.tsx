@@ -59,7 +59,12 @@ export function BlogItem({ post }: { post: BlogPost }) {
             {title}
           </Link>
         </h4>
-        <p className="text-sm" style={{ marginBottom: '0px' }}>{description}</p>
+        <p className="text-sm" 
+          style={{
+            marginBottom: '0px',
+            maxHeight: `4em`,
+            overflow: `hidden`,
+          }}>{description}</p>
         <Icon icon="ri:calendar-line" style={{ marginBottom: '-2px', width: '12px', height: '12px' }} />
         <time dateTime={date} itemProp="datePublished" style={{ fontSize: '12px', color: '#555555' }}>
           &nbsp;{formatDate(date)}
