@@ -69,6 +69,7 @@ export type ProfileConfig = {
   heroImg: string
   name: string
   bio?: string
+  author: string
   about: {
     title: string
     url: string

@@ -46,6 +46,7 @@ export const profileConfig: ProfileConfig = {
     title: '自我介绍',
     url: '/about',
   },
+  author: '素喂',
 }
 // -------------------------下方代码无需改动
 // getCopyright方法无需改动
