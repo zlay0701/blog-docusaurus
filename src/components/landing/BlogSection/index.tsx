@@ -32,10 +32,18 @@ export function BlogItem({ post }: { post: BlogPost }) {
     >
       {image && (
         <Link href={permalink} className="max-h-[240px] w-full cursor-pointer overflow-hidden object-cover">
-          <Image src={image} alt={title} img="" />
+          <Image src={image} alt={title} img=""
+            style={{
+              WebkitMaskImage: 'linear-gradient(180deg, #fff -17.19%, #00000000 92.43%)',
+              maskImage: 'linear-gradient(180deg, #fff -17.19%, #00000000 92.43%)',
+            }}/>
         </Link>
       )}
-      <div className="card__body">
+      <div className="card__body" 
+        style={{
+          backdropFilter: `blur(10px)`,
+          marginTop: '-90px',
+        }}>
         <h4 className="text-base">
           <Link href={permalink} className="relative hover:no-underline">
             {title}
