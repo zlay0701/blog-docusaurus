@@ -16,7 +16,7 @@ export default async function createConfigAsync() {
   customFields: {
     bio: '道阻且长，行则将至',
     description:
-      '是一个由愧怍创建的个人博客，主要分享编程开发知识和项目，该网站基于 React 驱动的静态网站生成器 Docusaurus 构建。',
+      `是一个由${profileConfig.author}创建的个人博客，主要分享编程开发知识和项目，该网站基于 React 驱动的静态网站生成器 Docusaurus 构建。`,
   },
   themeConfig: {
     // announcementBar: {
@@ -31,11 +31,11 @@ export default async function createConfigAsync() {
       },
       {
         name: 'keywords',
-        content: 'blog, javascript, typescript, node, react, vue, web',
+        content: 'blog, java, javascript, typescript, node, react, vue, web, sql',
       },
       {
         name: 'keywords',
-        content: '编程爱好者, Web开发者, 写过爬虫, 学过逆向, 主攻ts全栈',
+        content: '博客, 编程爱好者, Web开发者, 素喂, zlay, Java工程师',
       },
     ],
     docs: {
