@@ -217,7 +217,7 @@ export default async function createConfigAsync() {
         editLocalizedFiles: false,
         blogDescription: '代码人生：编织技术与生活的博客之旅',
         blogSidebarCount: 10,
-        blogSidebarTitle: '最新博文',
+        blogSidebarTitle: '近期博客',
         postsPerPage: 12,
         showReadingTime: true,
         readingTime: ({ content, frontMatter, defaultReadingTime }) =>
