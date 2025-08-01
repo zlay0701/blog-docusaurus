@@ -3,7 +3,7 @@ import type { Config } from '@docusaurus/types'
 import { themes } from 'prism-react-renderer'
 import social from './data/social'
 import type { GiscusConfig } from './src/components/Comment'
-import { siteConfig, getCopyright, getCopyright2, getSvgString } from './src/config'
+import { siteConfig, getCopyright, getCopyright2, getSvgString, profileConfig } from './src/config'
 
 export default async function createConfigAsync() {
   return {
@@ -27,7 +27,7 @@ export default async function createConfigAsync() {
     metadata: [
       {
         name: 'author',
-        content: '愧怍',
+        content: profileConfig.author,
       },
       {
         name: 'keywords',
@@ -252,13 +252,13 @@ export default async function createConfigAsync() {
                 innerHTML: `
     (${function () {
       console.log(
-        `%c Kz Blog %c https://github.com/kuizuo/blog`,
+        `%c ${profileConfig.author} Blog %c ${siteConfig.friends.siteInfo.website}`,
         'color: #fff; margin: 1em 0; padding: 5px 0; background: #12affa;',
         'margin: 1em 0; padding: 5px 0; background: #efefef;',
       )
 
       const motto = `
-This Webisite Powered By Kz Blog.
+This Webisite Powered By ${profileConfig.author} Blog.
 Written by Docusaurus, Coding with Love.
 --------
 Love what you do and do what you love.
@@ -280,7 +280,7 @@ Love what you do and do what you love.
       tagName: 'meta',
       attributes: {
         name: 'description',
-        content: '愧怍的个人博客',
+        content: `${profileConfig.author}的个人博客`,
       },
     },
   ],
