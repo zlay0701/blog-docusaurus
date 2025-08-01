@@ -252,13 +252,13 @@ export default async function createConfigAsync() {
                 innerHTML: `
     (${function () {
       console.log(
-        `%c ${profileConfig.author} Blog %c ${siteConfig.friends.siteInfo.website}`,
+        `%c zlay Blog %c https://github.com/zlay0701`,
         'color: #fff; margin: 1em 0; padding: 5px 0; background: #12affa;',
         'margin: 1em 0; padding: 5px 0; background: #efefef;',
       )
 
       const motto = `
-This Webisite Powered By ${profileConfig.author} Blog.
+This Webisite Powered By zlay.
 Written by Docusaurus, Coding with Love.
 --------
 Love what you do and do what you love.
