@@ -16,6 +16,7 @@ export type SiteConfig = {
   beian: string
   beian1: string
   vendors: string
+  defaultPostImage: string
 
   themeColor: {
     hue: number

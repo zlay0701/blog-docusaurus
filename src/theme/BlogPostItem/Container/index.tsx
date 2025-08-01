@@ -1,12 +1,15 @@
 import { useBlogPost } from '@docusaurus/plugin-content-blog/client'
 import { useBaseUrlUtils } from '@docusaurus/useBaseUrl'
 import { cn } from '@site/src/lib/utils'
+import { siteConfig } from '@site/src/config'
 import type { Props } from '@theme/BlogPostItem/Container'
 
 export default function BlogPostItemContainer({ children, className }: Props): JSX.Element {
   const { frontMatter, assets } = useBlogPost()
   const { withBaseUrl } = useBaseUrlUtils()
-  const image = assets.image ?? frontMatter.image
+  let image = assets.image ?? frontMatter.image
+  image = image ? image : siteConfig.defaultPostImage // 给默认图片
+  console.log('assets', image)
   return (
     <article
       className={cn('relative px-4 pt-4 pb-3 lg:px-4', className)}

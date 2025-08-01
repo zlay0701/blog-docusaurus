@@ -33,6 +33,7 @@ export const siteConfig: SiteConfig = {
   beian: '闽ICP备2020017848号-3',
   beian1: '闽公网安备35021102000847号',
   vendors: '<p style="margin-bottom: 0;">Vercel提供CDN/云资源支持</p>',
+  defaultPostImage: '/img/defaut-post.png',
 }
 
 export const profileConfig: ProfileConfig = {
