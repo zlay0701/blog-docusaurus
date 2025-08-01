@@ -21,8 +21,16 @@ const Slider = ({ items }: { items: Project[] }) => {
                 alt={item.title}
                 className="h-[120px] w-full rounded-lg object-cover md:h-[240px]"
                 loading="lazy"
+                style={{
+                  WebkitMaskImage: 'linear-gradient(180deg, #fff -17.19%, #00000000 92.43%)',
+                  maskImage: 'linear-gradient(180deg, #fff -17.19%, #00000000 92.43%)',
+                }}
               />
-              <div className="w-full py-2 text-center">
+              <div className="w-full py-2 text-center"
+                style={{
+                  backdropFilter: `blur(1px)`,
+                  marginTop: '-110px',
+                }}>
                 <h2 className="m-0 truncate text-xl font-normal">
                   {item.title}
                 </h2>
