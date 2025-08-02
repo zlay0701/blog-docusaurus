@@ -5,7 +5,7 @@ import social from './data/social'
 import type { GiscusConfig } from './src/components/Comment'
 import { siteConfig, getCopyright, getCopyright2, getSvgString, profileConfig } from './src/config'
 
-export default async function createConfigAsync() {
+export default async function createConfigAsync(): Promise<Config> {
   return {
   title: siteConfig.title,
   url: 'https://docusaurus-zlay.vercel.app',
