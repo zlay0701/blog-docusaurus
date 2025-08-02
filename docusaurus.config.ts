@@ -2,7 +2,7 @@ import type * as Preset from '@docusaurus/preset-classic'
 import type { Config } from '@docusaurus/types'
 import { themes } from 'prism-react-renderer'
 import social from './data/social'
-import type { GiscusConfig } from './src/components/Comment'
+import type { GiscusConfig } from './src/components/Comment/Giscus'
 import { siteConfig, getCopyright, getCopyright2, getSvgString, profileConfig } from './src/config'
 
 export default async function createConfigAsync(): Promise<Config>
@@ -137,6 +137,7 @@ export default async function createConfigAsync(): Promise<Config>
         },
       ],
     },
+    comments: ['giscus'],
     giscus: {
       repo: 'kuizuo/blog',
       repoId: 'MDEwOlJlcG9zaXRvcnkzOTc2MjU2MTI=',
