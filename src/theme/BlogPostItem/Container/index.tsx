@@ -9,7 +9,7 @@ export default function BlogPostItemContainer({ children, className }: Props): J
   const { withBaseUrl } = useBaseUrlUtils()
   let image = assets.image ?? frontMatter.image
   image = image ? image : siteConfig.defaultPostImage // 给默认图片
-  console.log('assets', image)
+  // console.log('assets', image)
   return (
     <article
       className={cn('relative px-4 pt-4 pb-3 lg:px-4', className)}
