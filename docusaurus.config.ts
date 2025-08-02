@@ -4,6 +4,7 @@ import { themes } from 'prism-react-renderer'
 import social from './data/social'
 import type { GiscusConfig } from './src/components/Comment/Giscus'
 import type { UtterancesProps } from '@site/src/components/Comment/Utterances'
+import type { WalineOptions } from '@site/src/components/Comment/Waline'
 import { siteConfig, getCopyright, getCopyright2, getSvgString, profileConfig } from './src/config'
 
 export default async function createConfigAsync(): Promise<Config>
@@ -138,7 +139,28 @@ export default async function createConfigAsync(): Promise<Config>
         },
       ],
     },
-    comments: ['utterances'], // giscus waline
+    comments: ['waline'], // 支持 giscus waline utterances
+    waline: {
+      serverURL: 'https://waline.zlay.fun',
+      cssUrl: '/uploads/waline/waline.css',
+      locale: {
+        placeholder: '请文明评论呀',
+      },
+      commentCount: false,
+      pageview: true,
+      lang: 'zh-CN',
+      search: false,
+      reaction: false,
+      imageUploader: false, // 禁止文件上传
+      turnstileKey: '0x4AAAAAABgd77_f_MbFV2jY',
+      emoji: [
+        '/uploads/waline/emojis/weibo',
+      ],
+      requiredMeta: [
+        'nick',
+        'mail',
+      ],
+    } satisfies Partial<WalineOptions>,
     utterances: {
       repo: 'zlay0701/hexo-demo-comments',
       issueTerm: 'pathname',
