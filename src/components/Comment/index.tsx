@@ -21,16 +21,32 @@ hide_comment: true
 export default function Comment({ frontMatter }: { frontMatter: { [key: string]: unknown } }): JSX.Element {
   const themeConfig = useThemeConfig() as ThemeConfig & { giscus: GiscusConfig }
   const { i18n } = useDocusaurusContext()
-  console.log('themeConfig', frontMatter)
-  console.log('i18n', i18n)
+  // console.log('themeConfig', frontMatter)
+  // console.log('i18n', i18n)
   const commentsArr = themeConfig.comments
   const utterancesProps = themeConfig.utterances
   const walineProps = themeConfig.waline
   // console.log('walineProps', walineProps)
+  // 增加不展示校验
+  const comments1 = frontMatter?.comments
+  const comments2 = frontMatter?.comment?.enable
+  const comments3 = frontMatter?.comment
+  const comments4 = frontMatter?.hide_comment
+  if (comments1 + '' === 'false') {
+    return <></>
+  }
+  if (comments2 + '' === 'false') {
+    return <></>
+  }
+  if (comments3 + '' === 'false') {
+    return <></>
+  }
+  if (comments1 + '' === 'true') {
+    return <></>
+  }
   let GiscusFlag = false
   let utterancesFlag = false
   let walineFlag = false
-  // 增加不展示校验
   for (const str of commentsArr) {
     if (str.toLowerCase() === 'Giscus'.toLowerCase()) {
       GiscusFlag = true
