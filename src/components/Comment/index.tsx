@@ -27,16 +27,51 @@ export default function Comment({ frontMatter }: { frontMatter: { [key: string]:
   const utterancesProps = themeConfig.utterances
   const walineProps = themeConfig.waline
   // console.log('walineProps', walineProps)
+  let GiscusFlag = false
+  let utterancesFlag = false
+  let walineFlag = false
   // 增加不展示校验
   for (const str of commentsArr) {
     if (str.toLowerCase() === 'Giscus'.toLowerCase()) {
-      return <GiscusComment />
+      GiscusFlag = true
     }
     if (str.toLowerCase() === 'utterances'.toLowerCase()) {
-      return <UtterancesComments repo={utterancesProps.repo} issueTerm={utterancesProps.issueTerm} theme={utterancesProps.theme} />
+      utterancesFlag = true
     }
     if (str.toLowerCase() === 'waline'.toLowerCase()) {
-      return <Waline props={walineProps} />
+      walineFlag = true
     }
   }
+  return (
+    <>
+      {GiscusFlag && (
+        <>
+          <GiscusComment />
+          <GradientDivider />
+        </>
+      )}
+      {utterancesFlag && (
+        <>
+          <UtterancesComments repo={utterancesProps.repo} issueTerm={utterancesProps.issueTerm} theme={utterancesProps.theme} />
+          <GradientDivider />
+        </>
+      )}
+      {walineFlag && (
+        <>
+          <Waline props={walineProps} />
+          <GradientDivider />
+        </>
+      )}
+    </>
+  )
 }
+// JSX 格式的渐变分割线
+const GradientDivider = () => (
+  <hr
+    style={{
+      border: 'none',
+      height: '3px',
+      background: 'linear-gradient(to right, transparent, #333, transparent)',
+    }}
+  />
+)
