@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 
-interface UtterancesProps {
+export type UtterancesProps = {
   // GitHub仓库地址，格式：用户名/仓库名
   repo: string
   // 评论与页面的关联方式
@@ -38,6 +38,7 @@ const UtterancesComments: React.FC<UtterancesProps> = ({
     script.src = 'https://utteranc.es/client.js'
     script.async = true
     script.crossOrigin = crossorigin
+    // console.log('crossorigin', crossorigin)
 
     // 设置utterances配置参数
     script.setAttribute('repo', repo)
