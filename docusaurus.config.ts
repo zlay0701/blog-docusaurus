@@ -3,12 +3,13 @@ import type { Config } from '@docusaurus/types'
 import { themes } from 'prism-react-renderer'
 import social from './data/social'
 import type { GiscusConfig } from './src/components/Comment/Giscus'
+import type { UtterancesProps } from '@site/src/components/Comment/Utterances'
 import { siteConfig, getCopyright, getCopyright2, getSvgString, profileConfig } from './src/config'
 
 export default async function createConfigAsync(): Promise<Config>
 { return {
   title: siteConfig.title,
-  url: 'https://docusaurus-zlay.vercel.app',
+  url: 'https://docusaurus.zlay.fun',
   baseUrl: '/',
   favicon: 'images/favicon.ico',
   organizationName: 'kuizuo',
@@ -137,7 +138,12 @@ export default async function createConfigAsync(): Promise<Config>
         },
       ],
     },
-    comments: ['giscus'],
+    comments: ['utterances'], // giscus waline
+    utterances: {
+      repo: 'zlay0701/hexo-demo-comments',
+      issueTerm: 'pathname',
+      theme: 'github-light',
+    } satisfies Partial<UtterancesProps>,
     giscus: {
       repo: 'kuizuo/blog',
       repoId: 'MDEwOlJlcG9zaXRvcnkzOTc2MjU2MTI=',
