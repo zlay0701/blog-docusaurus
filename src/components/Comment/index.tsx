@@ -25,6 +25,8 @@ export default function Comment({ frontMatter }: { frontMatter: { [key: string]:
   console.log('i18n', i18n)
   const commentsArr = themeConfig.comments
   const utterancesProps = themeConfig.utterances
+  const walineProps = themeConfig.waline
+  // console.log('walineProps', walineProps)
   // 增加不展示校验
   for (const str of commentsArr) {
     if (str.toLowerCase() === 'Giscus'.toLowerCase()) {
@@ -34,7 +36,7 @@ export default function Comment({ frontMatter }: { frontMatter: { [key: string]:
       return <UtterancesComments repo={utterancesProps.repo} issueTerm={utterancesProps.issueTerm} theme={utterancesProps.theme} />
     }
     if (str.toLowerCase() === 'waline'.toLowerCase()) {
-      return <Waline />
+      return <Waline props={walineProps} />
     }
   }
 }
