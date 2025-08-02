@@ -12,7 +12,8 @@ export type WalineOptions = Omit<WalineInitOptions, 'el'> & { path: string }
 export const Waline = (props: WalineOptions) => {
   const walineInstanceRef = useRef<WalineInstance | null>(null)
   const containerRef = React.createRef<HTMLDivElement>()
-
+  props = props.props // 不知道为什么多了一层嵌套
+  // console.log('propsprops', props)
   useEffect(() => {
     walineInstanceRef.current = init({
       ...props,
