@@ -171,6 +171,7 @@ export default async function createConfigAsync(): Promise<Config>
       repoId: 'R_kgDOOyeurg',
       category: 'giscus-category',
       categoryId: 'DIC_kwDOOyeurs4Ctuxg',
+      mapping: 'pathname',
       theme: 'light',
       darkTheme: 'dark_dimmed',
     } satisfies Partial<GiscusConfig>,
