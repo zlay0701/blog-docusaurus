@@ -139,7 +139,7 @@ export default async function createConfigAsync(): Promise<Config>
         },
       ],
     },
-    comments: ['utterances'], // 支持多个评论服务 可选项  giscus waline utterances
+    comments: ['giscus'], // 支持多个评论服务 可选项  giscus waline utterances
     waline: {
       serverURL: 'https://waline.zlay.fun',
       cssUrl: '/uploads/waline/waline.css',
@@ -167,10 +167,10 @@ export default async function createConfigAsync(): Promise<Config>
       theme: 'github-light',
     } satisfies Partial<UtterancesProps>,
     giscus: {
-      repo: 'kuizuo/blog',
-      repoId: 'MDEwOlJlcG9zaXRvcnkzOTc2MjU2MTI=',
-      category: 'General',
-      categoryId: 'DIC_kwDOF7NJDM4CPK95',
+      repo: 'zlay0701/hexo-demo-comments',
+      repoId: 'R_kgDOOyeurg',
+      category: 'giscus-category',
+      categoryId: 'DIC_kwDOOyeurs4Ctuxg',
       theme: 'light',
       darkTheme: 'dark_dimmed',
     } satisfies Partial<GiscusConfig>,
