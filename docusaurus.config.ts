@@ -139,7 +139,7 @@ export default async function createConfigAsync(): Promise<Config>
         },
       ],
     },
-    comments: ['waline'], // 支持多个评论服务 可选项  giscus waline utterances
+    comments: ['utterances'], // 支持多个评论服务 可选项  giscus waline utterances
     waline: {
       serverURL: 'https://waline.zlay.fun',
       cssUrl: '/uploads/waline/waline.css',
