@@ -174,6 +174,7 @@ export default async function createConfigAsync(): Promise<Config>
       mapping: 'pathname',
       theme: 'light',
       darkTheme: 'dark_dimmed',
+      reactionsEnabled: '0',
     } satisfies Partial<GiscusConfig>,
     tableOfContents: {
       minHeadingLevel: 2,
