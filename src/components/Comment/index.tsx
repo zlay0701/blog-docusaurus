@@ -41,7 +41,7 @@ export default function Comment({ frontMatter }: { frontMatter: { [key: string]:
   if (comments3 + '' === 'false') {
     return <></>
   }
-  if (comments1 + '' === 'true') {
+  if (comments4 + '' === 'true') {
     return <></>
   }
   let GiscusFlag = false
