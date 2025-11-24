@@ -327,8 +327,15 @@ Love what you do and do what you love.
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   future: {
-    v4: true,
-    experimental_faster: true,
+    v4: {
+      removeLegacyPostBuildHeadAttribute: true,
+      useCssCascadeLayers: false,
+    },
+    experimental_faster: {
+      ssgWorkerThreads: true,
+      rspackBundler: true,
+      rspackPersistentCache: true,
+    },
   },
 }
 }
