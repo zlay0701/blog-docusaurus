@@ -332,9 +332,14 @@ Love what you do and do what you love.
       useCssCascadeLayers: false,
     },
     experimental_faster: {
-      ssgWorkerThreads: true,
+      swcJsLoader: true,
+      swcJsMinimizer: true,
+      swcHtmlMinimizer: true,
+      lightningCssMinimizer: true,
       rspackBundler: true,
       rspackPersistentCache: true,
+      ssgWorkerThreads: true,
+      mdxCrossCompilerCache: true,
     },
   },
 }
