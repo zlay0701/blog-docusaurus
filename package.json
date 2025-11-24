@@ -27,7 +27,7 @@
     "write-heading-ids": "docusaurus write-heading-ids",
     "index": "docker run -it --env-file=.env -e \"CONFIG=$(cat docsearch.json | jq -r tostring)\" algolia/docsearch-scraper"
   },
-  "dependencies": {
+  "dependencies": { 
     "@docusaurus/core": "3.9.2",
     "@docusaurus/faster": "^3.9.2",
     "@docusaurus/plugin-ideal-image": "3.9.2",
